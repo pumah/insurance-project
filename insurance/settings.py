@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'v5q3+=9hnjx5^na*3*0d0f)tfd1xz8!fik)po5jvxi_5iejo%b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['insurance-project.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','7ikkxmzsna.execute-api.us-east-2.amazonaws.com']
 
 
 # Application definition
@@ -78,18 +77,15 @@ WSGI_APPLICATION = 'insurance.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #}
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sql9219993',
         'USER': 'sql9219993',
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT'),
+        'PASSWORD': 'ahckdGq9CA',
+        'HOST': 'sql9.freesqldatabase.com',
+        'PORT': '3306',
+
     }
 }
 
