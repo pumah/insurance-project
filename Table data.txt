@@ -1,0 +1,56 @@
+
+====================================
+STRUCTURE OF TABLES & EXAMPLE DATA:
+====================================
+
+mysql> DESCRIBE riskapp_risk_type;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| risk_type | varchar(255) | NO   | UNI | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+mysql> DESCRIBE riskapp_risk_field;
++----------------+--------------------------------------+------+-----+---------+----------------+
+| Field          | Type                                 | Null | Key | Default | Extra          |
++----------------+--------------------------------------+------+-----+---------+----------------+
+| id             | int(11)                              | NO   | PRI | NULL    | auto_increment |
+| field_name     | varchar(255)                         | NO   |     | NULL    |                |
+| field_type     | enum('DATE','ENUM','DECIMAL','TEXT') | NO   |     | NULL    |                |
+| risk_type_id   | int(11)                              | NO   | MUL | NULL    |                |
+| field_metadata | varchar(255)                         | YES  |     | NULL    |                |
++----------------+--------------------------------------+------+-----+---------+----------------+
+
+mysql> SELECT * FROM riskapp_risk_type;
++----+-----------+
+| id | risk_type |
++----+-----------+
+|  1 | Type1     |
+|  2 | Type2     |
+|  3 | Type3     |
+|  4 | Type4     |
+|  5 | Type5     |
++----+-----------+
+
+mysql> SELECT * FROM riskapp_risk_field;
++----+------------+------------+--------------+----------------+
+| id | field_name | field_type | risk_type_id | field_metadata |
++----+------------+------------+--------------+----------------+
+|  1 | Name       | TEXT       |            1 | NULL           |
+|  2 | StartDate  | DATE       |            1 | NULL           |
+|  3 | EndDate    | DATE       |            1 | NULL           |
+|  4 | Amount     | DECIMAL    |            1 | NULL           |
+|  5 | Name       | TEXT       |            2 | NULL           |
+|  6 | StartDate  | DATE       |            2 | NULL           |
+|  7 | EndDate    | DATE       |            2 | NULL           |
+|  8 | Amount     | DECIMAL    |            2 | NULL           |
+|  9 | Currency   | ENUM       |            2 | USD,EUR,JPY    |
+| 10 | Name       | TEXT       |            3 | NULL           |
+| 11 | Address    | TEXT       |            3 | NULL           |
+| 12 | City       | TEXT       |            3 | NULL           |
+| 13 | Name       | TEXT       |            4 | NULL           |
+| 14 | StartDate  | DATE       |            4 | NULL           |
+| 15 | Name       | TEXT       |            5 | NULL           |
++----+------------+------------+--------------+----------------+
+
