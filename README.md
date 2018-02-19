@@ -2,4 +2,4 @@
 
 E-R Diagram
 
-![alt text](/er.png)
+![E-R Diagram](/er.png)
